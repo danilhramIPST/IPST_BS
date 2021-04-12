@@ -27,3 +27,4 @@ class ContactControllerEn extends Controller {
         }
 
 }
+

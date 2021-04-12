@@ -27,3 +27,4 @@ class ContactControllerRu extends Controller {
         }
 
 }
+
