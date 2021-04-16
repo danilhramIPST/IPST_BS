@@ -5,8 +5,7 @@
 </head>
 <body>
 <h1>Данные формы на IPSTBS</h1>
-{!! $textMail!!}
-{{$file}}
+{!! $textMail !!}
 </body>
 
 </html>

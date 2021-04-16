@@ -16,8 +16,7 @@ class ContactControllerRu extends Controller {
             'email' => 'required|email|min:9|max:60',
             'language' =>'required',
             'role' =>'required',
-            'aboutOneSelf' => 'required|min:5|max:500',
-            'Attaching files'
+            'aboutOneSelf' => '|min:5|max:500',
         ]);
     }
 
@@ -32,7 +31,7 @@ class ContactControllerRu extends Controller {
             $textMail.= "<p><b>О себе:</b>{$request->input('aboutOneSelf')}</p><br>";
             $textMail.= "<p><b>Прикрепленный файл:</b>{$request->input('attachingFiles')}</p><br>";
         }
-        Mail::to('hdiipstomsk@gmail.com')->send(new TestMailRu($textMail));
+        Mail::to('hdiipstomsk@gmail.com')->send(new TestMailRu($textMail,$request->file('attachingFiles')));
         return view('sendru');
     }
 

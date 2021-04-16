@@ -17,10 +17,12 @@ class TestMailRu extends Mailable
      * @return void
      */
     public $textMail;
+    public $file;
 
-    public function __construct($textMail)
+    public function __construct($textMail,$file)
     {
         $this->textMail = $textMail;
+        $this->file = $file;
     }
 
     /**
@@ -30,6 +32,6 @@ class TestMailRu extends Mailable
      */
     public function build()
     {
-        return $this->view('testru');
+        return $this->view('testru')->attach($this->file, ['as'=>'test', 'mime'=>$this->file->getMimeType()]);
     }
 }

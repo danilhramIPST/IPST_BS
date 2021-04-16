@@ -32,6 +32,6 @@ class TestMailEn extends Mailable
      */
     public function build()
     {
-        return $this->view('testen');
+        return $this->view('testen')->attach($this->file, ['as'=>'test', 'mime'=>$this->file->getMimeType()]);
     }
 }

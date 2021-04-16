@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form action="/contact/ru/send" method="post" >
+    <form action="/contact/ru/send" method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">

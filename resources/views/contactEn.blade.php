@@ -1,26 +1,3 @@
-<?php
-/*if (isset($_FILES['attachingFiles'])){
-    $errors = array();
-    $file_name = $_FILES['attachingFiles']['name'];
-    $file_size = $_FILES['attachingFiles']['size'];
-    $file_tmp = $_FILES['attachingFiles']['tmp_name'];
-    $file_type = $_FILES['attachingFiles']['type'];
-    //$file_ext = strtolower (end(explode('.' ,$_FILES['attachingFiles']['name'] )));
-
-    $expensions = array ("zip","docx","pdf","xlsx");
-
-    if ($file_size>41943040) {
-        $errors[] = 'Размер файла не более 5 Мбайт';
-    }
-    if (empty($errors)) {
-        move_uploaded_file($file_tmp, "/contact/en/send".$file_name);
-
-    }else{
-        print $errors;
-    }
-}
-*/?>
-
 @extends('layouts.app')
 
 @section('title-block') Contacts @endsection
