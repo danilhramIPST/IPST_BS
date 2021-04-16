@@ -15,8 +15,7 @@ class ContactControllerEn extends Controller {
             'phone' => 'required|max:16',
             'email' => 'required|email|min:9|max:60',
             'company' => 'required|min:1|max:20',
-            'message' => 'required|min:5|max:500',
-            'Attaching files'
+            'message' => 'min:5|max:500'
         ]);
     }
 
@@ -28,7 +27,7 @@ class ContactControllerEn extends Controller {
             $textMail.= "<p><b>Телефон:</b>{$request->input('phone')}</p><br>";
             $textMail.= "<p><b>Email:</b>{$request->input('email')}</p><br>";
             $textMail.= "<p><b>Сообщение:</b>{$request->input('message')}</p><br>";
-            $textMail.= "<p><b>Прикрепленный файл:</b></p><br>";
+            $textMail.= "<p><b>Прикрепленный файл:</b>{$request->input('attachingFiles')}</p><br>";
         }
         Mail::to('hdiipstomsk@gmail.com')->send(new TestMailEn($textMail,$request->file('attachingFiles')));
         return view('senden');
