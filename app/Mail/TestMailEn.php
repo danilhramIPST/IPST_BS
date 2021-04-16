@@ -16,9 +16,13 @@ class TestMailEn extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $textMail;
+    public $file;
+
+    public function __construct($textMail,$file)
     {
-        //
+        $this->textMail = $textMail;
+        $this->file = $file;
     }
 
     /**

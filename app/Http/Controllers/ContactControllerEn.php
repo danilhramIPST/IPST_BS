@@ -10,7 +10,7 @@ class ContactControllerEn extends Controller {
 
     public function submit(Request $request)
     {
-        $validation = $request->validate([
+        $request->validate([
             'name' => 'required|min:4|max:50',
             'phone' => 'required|max:16',
             'email' => 'required|email|min:9|max:60',
@@ -19,12 +19,21 @@ class ContactControllerEn extends Controller {
             'Attaching files'
         ]);
     }
-        public function send ()
-        {
-            Mail::to ('hdiipstomsk@gmail.com')->send(new TestMailEn());
-            return view ('senden');
 
+    public function send(Request $request)
+    {
+        if ($request->method() == 'POST') {
+            $textMail = "<p><b>Имя и фамилия:</b>{$request->input('name')}</p><br>";
+            $textMail.= "<p><b>Название компании:</b>{$request->input('company')}</p><br>";
+            $textMail.= "<p><b>Телефон:</b>{$request->input('phone')}</p><br>";
+            $textMail.= "<p><b>Email:</b>{$request->input('email')}</p><br>";
+            $textMail.= "<p><b>Сообщение:</b>{$request->input('message')}</p><br>";
+            $textMail.= "<p><b>Прикрепленный файл:</b></p><br>";
         }
+        Mail::to('hdiipstomsk@gmail.com')->send(new TestMailEn($textMail,$request->file('attachingFiles')));
+        return view('senden');
+
+    }
 
 }
 

@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form action="/contact/ru/send" method="post">
+    <form action="/contact/ru/send" method="post" >
         @csrf
 
         <div class="form-group">
@@ -66,7 +66,7 @@
         </div>
         <div>
             <label for="Attaching files">Прикрепление файлов</label>
-            <p><input type="file" name="Attaching files">
+            <p><input type="file" name="attachingFiles">
 
         </div>
         <button type="submit" class="btn btn-success">Отправить форму</button>

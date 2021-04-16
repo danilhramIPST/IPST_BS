@@ -16,9 +16,11 @@ class TestMailRu extends Mailable
      *
      * @return void
      */
-    public function __construct()
+    public $textMail;
+
+    public function __construct($textMail)
     {
-        //
+        $this->textMail = $textMail;
     }
 
     /**
