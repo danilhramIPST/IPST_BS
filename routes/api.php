@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use App\Http\Controllers\ContactControllerEn;
+use App\Http\Controllers\ContactControllerRu;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +14,15 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
+
+// url: {host}/api/
+//https:{host}/api/contact/{en|ru}
+Route::get('/contact/ru', [ContactControllerRu::class,'index']);
+Route::get('/contact/en', [ContactControllerEn::class,'index']);
+//https:{host}/api/contact/{en|ru}/send
+Route::post('/contact/ru/send', [ContactControllerRu::class,'send'])->name('send_mail_ru');
+Route::post('/contact/en/send', [ContactControllerEn::class,'send'])->name('send_mail_en');
+

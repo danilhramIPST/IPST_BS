@@ -5,17 +5,17 @@
 @section('content')
     <h1>Contacts</h1>
 
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+{{--    @if ($errors->any())--}}
+{{--        <div class="alert alert-danger">--}}
+{{--            <ul>--}}
+{{--                @foreach($errors->all() as $error)--}}
+{{--                    <li>{{ $error }}</li>--}}
+{{--                @endforeach--}}
+{{--            </ul>--}}
+{{--        </div>--}}
+{{--    @endif--}}
 
-    <form action="/contact/en/send" method="post" enctype="multipart/form-data">
+    <form action={{route('send_mail_en')}} method="post" enctype="multipart/form-data">
         @csrf
 
         <div class="form-group">
@@ -40,13 +40,13 @@
 
         <div class="form-group">
 
-            <textarea name="message" id="message" class="form-control"
+            <textarea name="comment" id="comment" class="form-control"
                       placeholder="Enter a message"></textarea>
         </div>
 
         <div>
             <label for="Attaching files">Attaching files</label>
-            <p><input type="file" name="attachingFiles">
+            <p><input type="file" name="file">
         </div>
         <button type="submit" class="btn btn-success">Submit a form</button>
 
